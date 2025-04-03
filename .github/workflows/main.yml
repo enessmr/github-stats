@@ -29,7 +29,6 @@ jobs:
     # Install dependencies with `pip`
     - name: Install requirements
       run: |
-        export EXCLUDE_FORKED_REPOS=false
         python3 -m pip install --upgrade pip setuptools wheel
         python3 -m pip install -r requirements.txt
 
@@ -43,7 +42,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         EXCLUDED: ${{ secrets.EXCLUDED }}
         EXCLUDED_LANGS: ${{ secrets.EXCLUDED_LANGS }}
-        EXCLUDE_FORKED_REPOS: true
+        EXCLUDE_FORKED_REPOS: false
 
     # Commit all changed files to the repository
     - name: Commit to the repo
